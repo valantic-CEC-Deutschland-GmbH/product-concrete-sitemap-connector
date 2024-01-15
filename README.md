@@ -54,7 +54,7 @@ Add `ProductConcreteSitemapCreatorPlugin` in:
 
 ## 4. Register `ProductConcreteSitemapConnectorConstants`
 
-Add `ProductConcreteSitemapConnectorConstants` in:
+Add `ProductConcreteSitemapConnectorConstants::RESOURCE_TYPE` in:
 ```php
 \Pyz\Yves\Sitemap\SitemapDependencyProvider::getAvailableSitemapRouteResources
 ```
