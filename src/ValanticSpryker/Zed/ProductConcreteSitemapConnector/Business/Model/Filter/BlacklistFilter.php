@@ -32,7 +32,7 @@ class BlacklistFilter implements FilterInterface
         }
 
         if (!$sitemapUrlTransfer->getResourceId()) {
-            return true;
+            return false;
         }
 
         $blackListIdsTheProductIsIn = $this->productListFacade

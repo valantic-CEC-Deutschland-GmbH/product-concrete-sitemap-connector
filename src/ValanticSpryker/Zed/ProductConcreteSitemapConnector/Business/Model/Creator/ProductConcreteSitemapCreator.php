@@ -53,10 +53,10 @@ class ProductConcreteSitemapCreator
                 $urlLimit,
             );
 
-            $this->filterUrls($urlList);
+            $urlList = $this->filterUrls($urlList);
 
             $sitemapTransfer = $this->sitemapService->createSitemapXmlFileTransfer(
-                $urlList,
+                array_values($urlList),
                 $page,
                 $currentStoreTransfer->getName(),
                 ProductConcreteSitemapConnectorConstants::RESOURCE_TYPE,
@@ -75,14 +75,16 @@ class ProductConcreteSitemapCreator
     /**
      * @param array<\Generated\Shared\Transfer\SitemapUrlTransfer> $urlList
      *
-     * @return void
+     * @return array<\Generated\Shared\Transfer\SitemapUrlTransfer>
      */
-    protected function filterUrls(array $urlList): void
+    protected function filterUrls(array $urlList): array
     {
         foreach ($urlList as $key => $url) {
             if (!$this->urlFilterExecutor->filterUrl($url)) {
-                unset($url[$key]);
+                unset($urlList[$key]);
             }
         }
+
+        return $urlList;
     }
 }

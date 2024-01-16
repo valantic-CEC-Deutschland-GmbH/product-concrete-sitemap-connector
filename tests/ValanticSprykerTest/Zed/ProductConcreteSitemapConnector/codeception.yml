@@ -16,6 +16,7 @@ coverage:
         - '../../../../src/ValanticSpryker/Zed/ProductConcreteSitemapConnector/*Factory.php'
         - '../../../../src/ValanticSpryker/Zed/ProductConcreteSitemapConnector/*DependencyProvider.php'
         - '../../../../src/ValanticSpryker/Zed/ProductConcreteSitemapConnector/*Config.php'
+        - '../../../../src/ValanticSpryker/Zed/ProductConcreteSitemapConnector/*Repository.php'
 
 suites:
     Communication:
