@@ -19,6 +19,8 @@ use ValanticSpryker\Zed\ProductConcreteSitemapConnector\Business\Exception\Inval
  */
 class ProductConcreteSitemapConnectorRepository extends AbstractRepository implements ProductConcreteSitemapConnectorRepositoryInterface
 {
+    protected const MESSAGE_STORE_ID_IS_NOT_AVAILABLE = 'Store id is not available';
+
     /**
      * @param \Generated\Shared\Transfer\StoreTransfer $currentStore
      * @param int $page
@@ -31,7 +33,7 @@ class ProductConcreteSitemapConnectorRepository extends AbstractRepository imple
     public function findActiveConcreteProductUrls(StoreTransfer $currentStore, int $page, int $limit): array
     {
         if (!$currentStore->getIdStore()) {
-            throw new InvalidStoreException('Store id is not available');
+            throw new InvalidStoreException(self::MESSAGE_STORE_ID_IS_NOT_AVAILABLE);
         }
 
         $urlEntities = $this->findVisibleProductUrls($currentStore->getIdStore(), $page, $limit);

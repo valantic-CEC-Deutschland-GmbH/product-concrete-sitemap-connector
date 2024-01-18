@@ -14,6 +14,8 @@ use ValanticSpryker\Zed\ProductConcreteSitemapConnector\ProductConcreteSitemapCo
 
 class ProductConcreteSitemapCreator
 {
+    protected const MESSAGE_STORE_NAME_IS_NOT_AVAILABLE = 'Store name is not available';
+
     /**
      * @param \ValanticSpryker\Service\Sitemap\SitemapServiceInterface $sitemapService
      * @param \ValanticSpryker\Zed\ProductConcreteSitemapConnector\Persistence\ProductConcreteSitemapConnectorRepositoryInterface $repository
@@ -43,7 +45,7 @@ class ProductConcreteSitemapCreator
         $page = 1;
 
         if (!$currentStoreTransfer->getName()) {
-            throw new InvalidStoreException('Store name is not available');
+            throw new InvalidStoreException(self::MESSAGE_STORE_NAME_IS_NOT_AVAILABLE);
         }
 
         do {
