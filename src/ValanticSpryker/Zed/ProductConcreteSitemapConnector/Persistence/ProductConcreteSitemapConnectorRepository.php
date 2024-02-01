@@ -28,7 +28,7 @@ class ProductConcreteSitemapConnectorRepository extends AbstractRepository imple
      *
      * @throws \ValanticSpryker\Zed\ProductConcreteSitemapConnector\Business\Exception\InvalidStoreException
      *
-     * @return array<\Generated\Shared\Transfer\SitemapUrlTransfer>
+     * @return array<\Generated\Shared\Transfer\SitemapUrlNodeTransfer>
      */
     public function findActiveConcreteProductUrls(StoreTransfer $currentStore, int $page, int $limit): array
     {
@@ -40,7 +40,7 @@ class ProductConcreteSitemapConnectorRepository extends AbstractRepository imple
 
         return $this->getFactory()
             ->createSitemapUrlMapper()
-            ->mapUrlEntitiesToSitemapUrlTransfers($urlEntities);
+            ->mapUrlEntitiesToSitemapUrlNodeTransfers($urlEntities);
     }
 
     /**

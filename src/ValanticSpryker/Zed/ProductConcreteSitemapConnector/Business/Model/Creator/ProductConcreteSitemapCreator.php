@@ -75,9 +75,9 @@ class ProductConcreteSitemapCreator
     }
 
     /**
-     * @param array<\Generated\Shared\Transfer\SitemapUrlTransfer> $urlList
+     * @param array<\Generated\Shared\Transfer\SitemapUrlNodeTransfer> $urlList
      *
-     * @return array<\Generated\Shared\Transfer\SitemapUrlTransfer>
+     * @return array<\Generated\Shared\Transfer\SitemapUrlNodeTransfer>
      */
     protected function filterUrls(array $urlList): array
     {

@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace ValanticSpryker\Zed\ProductConcreteSitemapConnector\Persistence\Mapper;
 
-use Generated\Shared\Transfer\SitemapUrlTransfer;
+use Generated\Shared\Transfer\SitemapUrlNodeTransfer;
 use Orm\Zed\Url\Persistence\SpyUrl;
 use Propel\Runtime\Collection\ObjectCollection;
 use ValanticSpryker\Shared\ProductConcreteSitemapConnector\ProductConcreteSitemapConnectorConstants;
@@ -34,15 +34,15 @@ class ProductConcreteSitemapUrlMapper
     /**
      * @param \Propel\Runtime\Collection\ObjectCollection $urlEntities
      *
-     * @return array<\Generated\Shared\Transfer\SitemapUrlTransfer>
+     * @return array<\Generated\Shared\Transfer\SitemapUrlNodeTransfer>
      */
-    public function mapUrlEntitiesToSitemapUrlTransfers(ObjectCollection $urlEntities): array
+    public function mapUrlEntitiesToSitemapUrlNodeTransfers(ObjectCollection $urlEntities): array
     {
         $transfers = [];
 
         /** @var \Orm\Zed\Url\Persistence\SpyUrl $urlEntity */
         foreach ($urlEntities as $urlEntity) {
-            $transfers[] = $this->createSitemapUrlTransfer($urlEntity);
+            $transfers[] = $this->createSitemapUrlNodeTransfer($urlEntity);
         }
 
         return $transfers;
@@ -51,11 +51,11 @@ class ProductConcreteSitemapUrlMapper
     /**
      * @param \Orm\Zed\Url\Persistence\SpyUrl $urlEntity
      *
-     * @return \Generated\Shared\Transfer\SitemapUrlTransfer
+     * @return \Generated\Shared\Transfer\SitemapUrlNodeTransfer
      */
-    protected function createSitemapUrlTransfer(SpyUrl $urlEntity): SitemapUrlTransfer
+    protected function createSitemapUrlNodeTransfer(SpyUrl $urlEntity): SitemapUrlNodeTransfer
     {
-        return (new SitemapUrlTransfer())
+        return (new SitemapUrlNodeTransfer())
             ->setUrl($this->formatUrl($urlEntity))
             ->setUpdatedAt($urlEntity->getVirtualColumn('updated_at'))
             ->setResourceId($urlEntity->getFkResourceProduct())

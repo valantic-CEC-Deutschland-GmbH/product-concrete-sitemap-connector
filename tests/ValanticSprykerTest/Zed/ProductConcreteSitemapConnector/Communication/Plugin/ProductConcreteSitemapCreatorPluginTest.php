@@ -6,7 +6,7 @@ namespace ValanticSprykerTest\Zed\ProductConcreteSitemapConnector\Communication\
 
 use Codeception\Test\Unit;
 use Generated\Shared\DataBuilder\SitemapFileBuilder;
-use Generated\Shared\DataBuilder\SitemapUrlBuilder;
+use Generated\Shared\DataBuilder\SitemapUrlNodeBuilder;
 use Generated\Shared\Transfer\StoreTransfer;
 use Spryker\Zed\ProductList\Business\ProductListFacadeInterface;
 use Spryker\Zed\Store\Business\StoreFacadeInterface;
@@ -73,8 +73,8 @@ class ProductConcreteSitemapCreatorPluginTest extends Unit
      */
     public function testCreateSitemapXml(): void
     {
-        $url1 = (new SitemapUrlBuilder(['url' => '/test1']))->build();
-        $url2 = (new SitemapUrlBuilder(['url' => '/test2']))->build();
+        $url1 = (new SitemapUrlNodeBuilder(['url' => '/test1']))->build();
+        $url2 = (new SitemapUrlNodeBuilder(['url' => '/test2']))->build();
         $this->repositoryMock->expects($this->exactly(2))
             ->method(self::METHOD_FIND_ACTIVE_CONCRETE_PRODUCT_URLS)
             ->willReturnOnConsecutiveCalls([$url1, $url2], []);
@@ -101,10 +101,10 @@ class ProductConcreteSitemapCreatorPluginTest extends Unit
     {
         $this->tester->setConfig(SitemapConstants::SITEMAP_USE_BLACKLISTS, true);
 
-        $url1 = (new SitemapUrlBuilder(['url' => '/test1', 'resourceId' => 1]))->build();
-        $url2 = (new SitemapUrlBuilder(['url' => '/test2', 'resourceId' => 2]))->build();
-        $url3 = (new SitemapUrlBuilder(['url' => '/test3', 'resourceId' => 3]))->build();
-        $url4 = (new SitemapUrlBuilder(['url' => '/test4']))->build();
+        $url1 = (new SitemapUrlNodeBuilder(['url' => '/test1', 'resourceId' => 1]))->build();
+        $url2 = (new SitemapUrlNodeBuilder(['url' => '/test2', 'resourceId' => 2]))->build();
+        $url3 = (new SitemapUrlNodeBuilder(['url' => '/test3', 'resourceId' => 3]))->build();
+        $url4 = (new SitemapUrlNodeBuilder(['url' => '/test4']))->build();
         $this->repositoryMock->expects($this->exactly(2))
             ->method(self::METHOD_FIND_ACTIVE_CONCRETE_PRODUCT_URLS)
             ->willReturnOnConsecutiveCalls([$url1, $url2, $url3, $url4], []);

@@ -34,7 +34,7 @@ class ProductConcreteSitemapUrlMapperTest extends Unit
     /**
      * @return void
      */
-    public function testMapUrlEntitiesToSitemapUrlTransfers(): void
+    public function testMapUrlEntitiesToSitemapUrlNodeTransfers(): void
     {
         $url1 = (new SpyUrl())
             ->setUrl('/en/test1')
@@ -46,11 +46,11 @@ class ProductConcreteSitemapUrlMapperTest extends Unit
             ->setFkResourceProduct(2);
         $urlEntities = new ObjectCollection([$url1, $url2]);
 
-        $sitemapUrlTransfers = $this->sut->mapUrlEntitiesToSitemapUrlTransfers($urlEntities);
+        $sitemapUrlNodeTransfers = $this->sut->mapUrlEntitiesToSitemapUrlNodeTransfers($urlEntities);
 
-        $this->assertCount(2, $sitemapUrlTransfers);
-        $urlTransfer1 = $sitemapUrlTransfers[0];
-        $urlTransfer2 = $sitemapUrlTransfers[1];
+        $this->assertCount(2, $sitemapUrlNodeTransfers);
+        $urlTransfer1 = $sitemapUrlNodeTransfers[0];
+        $urlTransfer2 = $sitemapUrlNodeTransfers[1];
 
         $this->assertEquals(self::YVES_BASE_URL . $url1->getUrl(), $urlTransfer1->getUrl());
         $this->assertEquals(self::YVES_BASE_URL . $url2->getUrl(), $urlTransfer2->getUrl());

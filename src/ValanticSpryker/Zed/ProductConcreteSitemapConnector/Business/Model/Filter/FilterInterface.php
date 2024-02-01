@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace ValanticSpryker\Zed\ProductConcreteSitemapConnector\Business\Model\Filter;
 
-use Generated\Shared\Transfer\SitemapUrlTransfer;
+use Generated\Shared\Transfer\SitemapUrlNodeTransfer;
 
 interface FilterInterface
 {
@@ -13,9 +13,9 @@ interface FilterInterface
      *
      * - Filters URLs by specific condition. Returns false upon failure.
      *
-     * @param \Generated\Shared\Transfer\SitemapUrlTransfer $sitemapUrlTransfer
+     * @param \Generated\Shared\Transfer\SitemapUrlNodeTransfer $sitemapUrlNodeTransfer
      *
      * @return bool
      */
-    public function filter(SitemapUrlTransfer $sitemapUrlTransfer): bool;
+    public function filter(SitemapUrlNodeTransfer $sitemapUrlNodeTransfer): bool;
 }
