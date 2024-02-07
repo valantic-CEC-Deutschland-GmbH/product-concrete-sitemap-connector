@@ -20,6 +20,7 @@ use ValanticSpryker\Zed\ProductConcreteSitemapConnector\Business\Exception\Inval
 class ProductConcreteSitemapConnectorRepository extends AbstractRepository implements ProductConcreteSitemapConnectorRepositoryInterface
 {
     protected const MESSAGE_STORE_ID_IS_NOT_AVAILABLE = 'Store id is not available';
+    protected const COL_UPDATED_AT = 'updated_at';
 
     /**
      * @param \Generated\Shared\Transfer\StoreTransfer $currentStore
@@ -33,7 +34,7 @@ class ProductConcreteSitemapConnectorRepository extends AbstractRepository imple
     public function findActiveConcreteProductUrls(StoreTransfer $currentStore, int $page, int $limit): array
     {
         if (!$currentStore->getIdStore()) {
-            throw new InvalidStoreException(self::MESSAGE_STORE_ID_IS_NOT_AVAILABLE);
+            throw new InvalidStoreException(static::MESSAGE_STORE_ID_IS_NOT_AVAILABLE);
         }
 
         $urlEntities = $this->findVisibleProductUrls($currentStore->getIdStore(), $page, $limit);
@@ -68,7 +69,7 @@ class ProductConcreteSitemapConnectorRepository extends AbstractRepository imple
                 ->endUse()
             ->endUse()
             ->addJoin(SpyUrlTableMap::COL_ID_URL, SpyUrlStorageTableMap::COL_FK_URL, Criteria::INNER_JOIN)
-            ->withColumn(SpyUrlStorageTableMap::COL_UPDATED_AT, 'updated_at')
+            ->withColumn(SpyUrlStorageTableMap::COL_UPDATED_AT, static::COL_UPDATED_AT)
             ->setOffset($this->calculateOffsetByPage($page, $urlLimit))
             ->setLimit($urlLimit);
 

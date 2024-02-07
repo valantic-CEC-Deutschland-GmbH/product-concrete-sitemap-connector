@@ -45,7 +45,7 @@ class ProductConcreteSitemapCreator
         $page = 1;
 
         if (!$currentStoreTransfer->getName()) {
-            throw new InvalidStoreException(self::MESSAGE_STORE_NAME_IS_NOT_AVAILABLE);
+            throw new InvalidStoreException(static::MESSAGE_STORE_NAME_IS_NOT_AVAILABLE);
         }
 
         do {
