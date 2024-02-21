@@ -2,12 +2,12 @@
     "name": "valantic-spryker/product-concrete-sitemap-connector",
     "description": "Provides product concrete urls for valantic-spryker/sitemap module",
     "type": "library",
-    "license": "MIT",
+    "license": "proprietary",
     "require": {
         "php": ">=8.0",
         "spryker/product-list": "^1.6.2",
         "valantic-spryker/product-concrete-urls": "^5.0",
-        "valantic-spryker/sitemap": "^4.0.0"
+        "valantic-spryker/sitemap": "^4.0.4"
     },
     "require-dev": {
         "fond-of-codeception/spryker": "^2.0",
