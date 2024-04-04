@@ -2,9 +2,12 @@
     "name": "valantic-spryker/product-concrete-sitemap-connector",
     "description": "Provides product concrete urls for valantic-spryker/sitemap module",
     "type": "library",
-    "license": "MIT",
+    "license": "proprietary",
     "require": {
-        "php": ">=8.0"
+        "php": ">=8.0",
+        "spryker/product-list": "^1.6.2",
+        "valantic-spryker/product-concrete-urls": "^5.0",
+        "valantic-spryker/sitemap": "^4.0.4"
     },
     "require-dev": {
         "fond-of-codeception/spryker": "^2.0",
@@ -58,7 +61,13 @@
         "cs-fix": "phpcbf --standard=phpcs.xml src/ tests/",
         "cs-check": "phpcs -s --standard=phpcs.xml --report=full src/ tests/",
         "md-check": "phpmd src/ text phpmd-ruleset.xml --minimumpriority 2",
-        "stan": "php vendor/bin/phpstan analyze src/ValanticSpryker",
+        "stan": "php -d memory_limit=-1 vendor/bin/phpstan analyze src/ValanticSpryker",
         "test": "codecept run --env standalone --coverage-text --no-colors --coverage-html"
+    },
+    "repositories": {
+        "gitlab.nxs360.com/461": {
+            "type": "composer",
+            "url": "https://gitlab.nxs360.com/api/v4/group/461/-/packages/composer/packages.json"
+        }
     }
 }

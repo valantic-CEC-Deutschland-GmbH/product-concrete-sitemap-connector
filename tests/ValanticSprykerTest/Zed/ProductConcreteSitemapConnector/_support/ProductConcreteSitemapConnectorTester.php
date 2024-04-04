@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ValanticSprykerTest\Zed\TestTemplate;
+namespace ValanticSprykerTest\Zed\ProductConcreteSitemapConnector;
 
 /**
  * Inherited Methods
@@ -19,9 +19,9 @@ namespace ValanticSprykerTest\Zed\TestTemplate;
  *
  * @SuppressWarnings(PHPMD)
 */
-class TestTemplateTester extends \Codeception\Actor
+class ProductConcreteSitemapConnectorTester extends \Codeception\Actor
 {
-    use _generated\TestTemplateTesterActions;
+    use _generated\ProductConcreteSitemapConnectorTesterActions;
 
     /**
      * Define custom actions here
