@@ -6,7 +6,7 @@
     "require": {
         "php": ">=8.0",
         "spryker/product-list": "^1.6.2",
-        "valantic-spryker/product-concrete-urls": "^5.0",
+        "valantic-spryker/product-concrete-url": "^6.0",
         "valantic-spryker/sitemap": "^4.0.4"
     },
     "require-dev": {
